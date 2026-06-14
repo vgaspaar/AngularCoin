@@ -1,0 +1,152 @@
+// src/app/features/history/history.component.scss
+
+.history-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.clear-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-danger-light);
+  border-radius: var(--radius-sm);
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+
+  &:hover {
+    background: var(--color-danger);
+    color: #fff;
+    border-color: var(--color-danger);
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.empty-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.empty-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+.item-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-currencies {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.currency-from {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.arrow {
+  color: var(--color-primary);
+  font-size: 14px;
+}
+
+.currency-to {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.item-rate {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.item-time {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.remove-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+    background: var(--color-danger-light);
+  }
+}
+
+.history-count {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}

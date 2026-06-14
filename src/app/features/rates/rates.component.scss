@@ -1,0 +1,167 @@
+// src/app/features/rates/rates.component.scss
+
+.rates-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.refresh-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: inherit;
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}
+
+.base-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.last-update {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.search-wrapper {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  outline: none;
+
+  &:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.15);
+    background: #fff;
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.rate-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+
+  &:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+}
+
+.rate-flag {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.rate-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.rate-code {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.rate-name {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rate-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  flex-shrink: 0;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-box {
+  padding: 12px 16px;
+  background: var(--color-danger-light);
+  color: var(--color-danger);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 32px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}

@@ -1,0 +1,96 @@
+<!-- src/app/features/converter/converter.component.html -->
+
+<div class="converter-card">
+
+  <!-- Título -->
+  <div class="card-header">
+    <h2 class="card-title">Conversor de Moedas</h2>
+    <span class="last-update" *ngIf="lastUpdated">
+      Atualizado: {{ lastUpdated }}
+    </span>
+  </div>
+
+  <!-- Formulário de conversão -->
+  <div class="form-grid">
+
+    <!-- Valor -->
+    <div class="field-group full-width">
+      <label class="field-label" for="amount">Valor</label>
+      <input
+        id="amount"
+        type="number"
+        class="field-input"
+        [(ngModel)]="amount"
+        min="0"
+        step="any"
+        placeholder="0,00"
+        (keyup.enter)="convert()"
+      />
+    </div>
+
+    <!-- Moeda origem -->
+    <div class="field-group">
+      <label class="field-label" for="fromCurrency">De</label>
+      <select id="fromCurrency" class="field-select" [(ngModel)]="fromCurrency">
+        <option *ngFor="let c of currencies" [value]="c.code">
+          {{ c.flag }} {{ c.code }} — {{ c.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Botão inverter -->
+    <div class="swap-col">
+      <button class="swap-btn" (click)="swapCurrencies()" title="Inverter moedas" type="button">
+        ⇄
+      </button>
+    </div>
+
+    <!-- Moeda destino -->
+    <div class="field-group">
+      <label class="field-label" for="toCurrency">Para</label>
+      <select id="toCurrency" class="field-select" [(ngModel)]="toCurrency">
+        <option *ngFor="let c of currencies" [value]="c.code">
+          {{ c.flag }} {{ c.code }} — {{ c.name }}
+        </option>
+      </select>
+    </div>
+
+  </div>
+
+  <!-- Botão converter -->
+  <button
+    class="convert-btn"
+    (click)="convert()"
+    [disabled]="isLoading"
+    type="button"
+  >
+    <span *ngIf="isLoading">⏳ Carregando taxas...</span>
+    <span *ngIf="!isLoading">💱 Converter</span>
+  </button>
+
+  <!-- Mensagem de erro -->
+  <div class="error-box" *ngIf="errorMessage">
+    ⚠️ {{ errorMessage }}
+  </div>
+
+  <!-- Resultado -->
+  <div class="result-box" *ngIf="result">
+    <div class="result-label">
+      {{ result.amount | number:'1.2-4':'pt-BR' }} {{ result.fromCurrency }} =
+    </div>
+    <div class="result-value">
+      {{ getCurrencySymbol(result.toCurrency) }}
+      {{ result.result | number:'1.2-4':'pt-BR' }}
+      <span class="result-code">{{ result.toCurrency }}</span>
+    </div>
+    <div class="result-rates">
+      <span>1 {{ result.fromCurrency }} = {{ result.rate | number:'1.4-4':'pt-BR' }} {{ result.toCurrency }}</span>
+      <span class="separator">·</span>
+      <span>1 {{ result.toCurrency }} = {{ result.inverseRate | number:'1.4-4':'pt-BR' }} {{ result.fromCurrency }}</span>
+    </div>
+    <div class="result-time">
+      {{ result.timestamp | date:'dd/MM/yyyy HH:mm':'pt-BR' }}
+    </div>
+  </div>
+
+</div>

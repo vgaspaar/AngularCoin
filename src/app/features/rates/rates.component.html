@@ -1,0 +1,58 @@
+<!-- src/app/features/rates/rates.component.html -->
+
+<div class="rates-card">
+  <div class="card-header">
+    <h2 class="card-title">Cotações</h2>
+    <button class="refresh-btn" (click)="loadRates()" title="Atualizar taxas" type="button">
+      🔄 Atualizar
+    </button>
+  </div>
+
+  <p class="base-info">Todas as taxas em relação ao <strong>USD (Dólar Americano)</strong></p>
+  <p class="last-update" *ngIf="lastUpdated">Atualizado: {{ lastUpdated }}</p>
+
+  <!-- Busca -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="onSearch()"
+      placeholder="Buscar moeda (ex: EUR, Real, Peso...)"
+    />
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-state" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <p>Carregando cotações...</p>
+  </div>
+
+  <!-- Erro -->
+  <div class="error-box" *ngIf="errorMessage && !isLoading">
+    ⚠️ {{ errorMessage }}
+  </div>
+
+  <!-- Grade de cotações -->
+  <div class="rates-grid" *ngIf="!isLoading && !errorMessage">
+    <div
+      class="rate-card"
+      *ngFor="let pair of filteredPairs"
+      (click)="selectPair(pair)"
+      title="Clique para converter {{ pair.base }} → {{ pair.quote }}"
+    >
+      <div class="rate-flag">{{ pair.currency.flag }}</div>
+      <div class="rate-info">
+        <div class="rate-code">{{ pair.base }} / {{ pair.quote }}</div>
+        <div class="rate-name">{{ pair.currency.name }}</div>
+      </div>
+      <div class="rate-value">
+        {{ pair.rate | number:'1.2-4':'pt-BR' }}
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="filteredPairs.length === 0">
+      Nenhuma moeda encontrada para "{{ searchQuery }}"
+    </div>
+  </div>
+</div>

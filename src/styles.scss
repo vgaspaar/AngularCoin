@@ -1,0 +1,66 @@
+/* =========================================
+   AngularCoin — Estilos Globais
+   ========================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary:        #1D9E75;
+  --color-primary-dark:   #0F6E56;
+  --color-primary-light:  #E1F5EE;
+  --color-danger:         #DC2626;
+  --color-danger-light:   #FEE2E2;
+  --color-warning:        #D97706;
+  --color-warning-light:  #FEF3C7;
+  --color-success:        #16A34A;
+  --color-success-light:  #DCFCE7;
+
+  --bg-page:              #F5F5F5;
+  --bg-card:              #FFFFFF;
+  --bg-surface:           #F9FAFB;
+  --bg-input:             #F3F4F6;
+
+  --text-primary:         #111827;
+  --text-secondary:       #6B7280;
+  --text-muted:           #9CA3AF;
+
+  --border-color:         #E5E7EB;
+  --border-focus:         #1D9E75;
+
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-full: 9999px;
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.10);
+
+  --font-base:   'Inter', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-base);
+  cursor: pointer;
+}
+
+input, select {
+  font-family: var(--font-base);
+}

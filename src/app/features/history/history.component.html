@@ -1,0 +1,59 @@
+<!-- src/app/features/history/history.component.html -->
+
+<div class="history-card">
+  <div class="card-header">
+    <h2 class="card-title">Histórico de Conversões</h2>
+    <button
+      class="clear-btn"
+      *ngIf="history.length > 0"
+      (click)="clearAll()"
+      type="button"
+    >
+      🗑️ Limpar tudo
+    </button>
+  </div>
+
+  <!-- Estado vazio -->
+  <div class="empty-state" *ngIf="history.length === 0">
+    <div class="empty-icon">🕘</div>
+    <p class="empty-title">Nenhuma conversão ainda</p>
+    <p class="empty-sub">Suas conversões aparecerão aqui.</p>
+  </div>
+
+  <!-- Lista de conversões -->
+  <div class="history-list" *ngIf="history.length > 0">
+    <div class="history-item" *ngFor="let item of history">
+
+      <div class="item-left">
+        <div class="item-currencies">
+          <span class="currency-from">
+            {{ getFlag(item.fromCurrency) }} {{ item.amount | number:'1.2-4':'pt-BR' }} {{ item.fromCurrency }}
+          </span>
+          <span class="arrow">→</span>
+          <span class="currency-to">
+            {{ getFlag(item.toCurrency) }} {{ getSymbol(item.toCurrency) }} {{ item.result | number:'1.2-4':'pt-BR' }} {{ item.toCurrency }}
+          </span>
+        </div>
+        <div class="item-rate">
+          Taxa: 1 {{ item.fromCurrency }} = {{ item.rate | number:'1.4-4':'pt-BR' }} {{ item.toCurrency }}
+        </div>
+        <div class="item-time">
+          {{ item.timestamp | date:'dd/MM/yyyy \'às\' HH:mm':'pt-BR' }}
+        </div>
+      </div>
+
+      <button
+        class="remove-btn"
+        (click)="removeItem(item.id)"
+        title="Remover do histórico"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <p class="history-count" *ngIf="history.length > 0">
+    {{ history.length }} conversão(ões) salva(s) localmente
+  </p>
+</div>
