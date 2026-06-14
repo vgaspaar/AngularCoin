@@ -11,7 +11,8 @@
 > _Adicione aqui screenshots do app rodando (mínimo 3 imagens conforme requisito)_
 >
 > Sugestão:
-> - Print da tela de Conversor com resultado
+> - <img width="1266" height="826" alt="image" src="https://github.com/user-attachments/assets/afdef17c-21c6-423e-86b7-af04a41e3230" />
+
 > - Print da tela de Cotações
 > - Print da tela de Histórico
 
