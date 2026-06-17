@@ -1,6 +1,6 @@
 # AngularCoin 💱
 
-## Vinicius Gaspar de Araújo Silva
+## Vinicius Gaspar de Araújo Silva 01797364
 
 **App de Conversão de Moedas em Tempo Real com Angular**
 
