@@ -1,5 +1,7 @@
 # AngularCoin 💱
 
+## Vinicius Gaspar de Araújo Silva
+
 **App de Conversão de Moedas em Tempo Real com Angular**
 
 
